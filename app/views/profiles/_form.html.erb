@@ -1,26 +1,37 @@
-<%= form_for(@profile) do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
-      <ul>
-      <% @profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <%= form_for(@profile) do |f| %>
+    <% if @profile.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+  
+        <ul>
+        <% @profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :address %><br>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+      <%= f.hidden_field :customer_id %>
+    <div class="col">
+      <h3>Services</h3>
+      <%= f.fields_for :services do |service| %>
+        <%= render 'service_fields', f: service %>
       <% end %>
-      </ul>
+    </div>
+    <div class="row">
+      <%= link_to_add_association 'Add Another Service', f, :services, class: "btn btn-success" %>
+    </div>
+      <br>  <%= f.submit nil, class: "btn btn-primary" %>
     </div>
   <% end %>
+  <br>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-    <%= f.hidden_field :customer_id %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

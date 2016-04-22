@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_services_dropdown, only: [:new, :edit]
   before_action :authenticate_customer!
 
   # GET /profiles
@@ -74,6 +75,10 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :address, :customer_id)
+      params.require(:profile).permit(:name, :address, :customer_id, services_attributes: [:id, :name, :description, :_destroy])
+    end
+    
+    def set_services_dropdown
+      @service_dropdown = Service.all.map{ |s| [ s.name, s.id] }
     end
 end

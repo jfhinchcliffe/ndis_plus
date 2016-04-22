@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'cocoon'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'sqlite3', group: :development # Added development group.

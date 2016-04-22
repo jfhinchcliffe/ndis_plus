@@ -1,0 +1,15 @@
+<div class="nested-fields" %>
+    <div class="row">
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= link_to_remove_association "Remove Service", f, class: "btn btn-danger" %>
+      </div>
+    </div>
+</div>

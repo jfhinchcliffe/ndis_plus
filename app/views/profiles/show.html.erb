@@ -10,5 +10,13 @@
   <%= @profile.address %>
 </p>
 
+<p>
+  <strong>Services</strong>
+  <% @profile.services.each do |service| %>
+    <%= service.name %>
+    <%= service.description %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
