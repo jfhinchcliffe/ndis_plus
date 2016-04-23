@@ -1,0 +1,2 @@
+module MasterservicesHelper
+end

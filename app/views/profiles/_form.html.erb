@@ -22,7 +22,7 @@
     </div>
       <%= f.hidden_field :customer_id %>
     <div class="col">
-      <h3>Services</h3>
+      <h3>Services Required</h3>
       <%= f.fields_for :services do |service| %>
         <%= render 'service_fields', f: service %>
       <% end %>

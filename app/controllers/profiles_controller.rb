@@ -79,6 +79,6 @@ class ProfilesController < ApplicationController
     end
     
     def set_services_dropdown
-      @service_dropdown = Service.all.map{ |s| [ s.name, s.id] }
+      @service_dropdown = Masterservice.all.map{ |s| [ s.name ] }
     end
 end
