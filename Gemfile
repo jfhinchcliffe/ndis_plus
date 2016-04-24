@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'gmaps4rails'
+gem 'geocoder'
 gem 'cocoon'
 gem 'devise'
 gem 'twitter-bootstrap-rails'

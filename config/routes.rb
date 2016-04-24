@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :providerprofiles
   resources :masterservices
   get 'pages/home'
+  get 'pages/maptest'
 
   resources :profiles
   devise_for :providers
