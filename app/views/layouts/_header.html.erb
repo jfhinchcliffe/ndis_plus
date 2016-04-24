@@ -21,6 +21,7 @@
           <li><%= link_to "Settings", edit_customer_registration_path %></li>
           <li><%= link_to "Log Out", destroy_customer_session_path, method: :delete %></li>
         <% elsif current_provider %>
+          <li><%= link_to "Profile Page", providerprofiles_path %></li>
           <li><%= link_to "Settings", edit_provider_registration_path %></li>
           <li><%= link_to "Log Out", destroy_provider_session_path, method: :delete %></li>
         <% else %>
