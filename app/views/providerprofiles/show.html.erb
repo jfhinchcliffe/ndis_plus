@@ -25,5 +25,13 @@
   <%= current_provider.email %>
 </p>
 
+<p>
+  <strong>Services</strong>
+  <% @providerprofile.providerservices.each do |providerservice| %>
+    <%= providerservice.name %>
+    <%= providerservice.description %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_providerprofile_path(@providerprofile) %> |
 <%= link_to 'Back', providerprofiles_path %>

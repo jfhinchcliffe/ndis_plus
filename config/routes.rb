@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :providerservices
   resources :providerprofiles
   resources :masterservices
   get 'pages/home'

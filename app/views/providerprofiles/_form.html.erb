@@ -1,37 +1,49 @@
-<%= form_for(@providerprofile) do |f| %>
-  <% if @providerprofile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@providerprofile.errors.count, "error") %> prohibited this providerprofile from being saved:</h2>
-
-      <ul>
-      <% @providerprofile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="row">
+  <%= form_for(@providerprofile) do |f| %>
+    <% if @providerprofile.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@providerprofile.errors.count, "error") %> prohibited this providerprofile from being saved:</h2>
+  
+        <ul>
+        <% @providerprofile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :address %><br>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :phone %><br>
+      <%= f.text_field :phone, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :provider_id %><br>
+      <%= f.text_field :provider_id, class: "form-control" %>
+    </div>
+    <%= f.hidden_field :provider_id %>
+    <div class="col">
+      <h3>Services Provided</h3>
+      <%= f.fields_for :providerservices do |providerservice| %>
+        <%= render 'providerservice_fields', f: providerservice %>
       <% end %>
-      </ul>
+    </div>
+    <div class="row">
+      <%= link_to_add_association 'Add Another Service', f, :providerservices, class: "btn btn-success" %>
+    </div>
+    <div class="actions">
+      <br> <%= f.submit nil, class: "btn btn-primary" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :provider_id %><br>
-    <%= f.text_field :provider_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

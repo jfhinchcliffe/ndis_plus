@@ -1,0 +1,9 @@
+<div class="nested-fields" %>
+    <div class="row">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.select :name, @service_dropdown, class: "form-control" %>
+        <%= link_to_remove_association "Remove Service", f, class: "btn btn-danger" %>
+      </div>
+    </div>
+</div>

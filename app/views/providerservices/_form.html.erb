@@ -1,0 +1,29 @@
+<%= form_for(@providerservice) do |f| %>
+  <% if @providerservice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@providerservice.errors.count, "error") %> prohibited this providerservice from being saved:</h2>
+
+      <ul>
+      <% @providerservice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :providerprofile_id %><br>
+    <%= f.text_field :providerprofile_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
