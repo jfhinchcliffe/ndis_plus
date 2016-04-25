@@ -1,5 +1,6 @@
 class MasterservicesController < ApplicationController
   before_action :set_masterservice, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_provider!
 
   # GET /masterservices
   # GET /masterservices.json

@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="jumbotron">
+  <h1>NDIS Plus</h1>
+  <p>A database of NDIS information to help customers and service providers connect</p>
+  <div class="row text-center">
+    <div class="col-md-6">
+      <%= link_to "Customer Sign Up", new_customer_registration_path, class: "btn btn-primary btn-lg" %>
+    </div>
+    <div class="col-md-6">
+      <%= link_to "Provider Sign Up", new_provider_registration_path, class: "btn btn-success btn-lg align-right" %>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row text-center">
+  <div class="col-md-4 col-md-offset-4">
+    <h4><%= link_to "Map Data Test", pages_maptest_path %></h4>
+  </div>
+</div>

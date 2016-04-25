@@ -8,7 +8,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">NDIS Plus</a>
+      <%= link_to "NDIS Plus", root_path, class: "navbar-brand" %>
+      
     </div>
  
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,6 +22,7 @@
           <li><%= link_to "Settings", edit_customer_registration_path %></li>
           <li><%= link_to "Log Out", destroy_customer_session_path, method: :delete %></li>
         <% elsif current_provider %>
+          <li><%= link_to "Services", masterservices_path %></li>
           <li><%= link_to "Profile Page", providerprofiles_path %></li>
           <li><%= link_to "Settings", edit_provider_registration_path %></li>
           <li><%= link_to "Log Out", destroy_provider_session_path, method: :delete %></li>
