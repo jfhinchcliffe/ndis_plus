@@ -3,9 +3,26 @@ class PagesController < ApplicationController
   end
   
   def maptest
-    @providerprofiles = Providerprofile.all
-    @pp = Providerprofile.all
-    @hash = Gmaps4rails.build_markers(@providerprofiles) do |providerprofile, marker|
+    #@service_dropdown = Masterservice.all.map{ |s| [ s.name ] }
+    if params[:search].present?
+      @pp = Providerprofile.joins(:providerservices).where("providerservices.name == ?", params[:search])
+    else
+      @pp = Providerprofile.all
+    end
+    
+    @count = @pp.count
+    if @count > 1
+      @countmessage = "#{@count} providers found"
+    else
+      @countmessage = "#{@count} provider found"
+    end
+    #if params[:search].present?
+    #  @providerprofiles = Providerservice.where(name: params[:search])
+    #else
+      #@providerprofiles = Providerprofile.where(id: @pp.providerprofile_id)
+    #end
+    
+    @hash = Gmaps4rails.build_markers(@pp) do |providerprofile, marker|
       if providerprofile.latitude.present? || providerprofile.longitude.present?
         marker.lat providerprofile.latitude
         marker.lng providerprofile.longitude
