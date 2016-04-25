@@ -4,13 +4,25 @@
 <%= form_tag pages_maptest_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Filter by Service", :name => nil %>
+    <%= submit_tag "Filter by Service", :name => nil, class: "btn btn-primary" %>
   </p>
 <% end %>
 
 <% if params[:search].present? %>
   <%= @countmessage %>
 <% end %>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+  </tr>
+  <% @pp.each do |pp| %>
+  <tr>
+    <td><%= link_to pp.name, pp %></td>
+    <td><%= pp.address %></td>
+  </tr>
+  <% end %>
+</table>
 
 <div style="width:950px; margin:0 auto; padding:1em;">
   <div id="map" style='width: 900px; height: 550px;'></div>

@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   end
   
   def maptest
-    #@service_dropdown = Masterservice.all.map{ |s| [ s.name ] }
+    @service_dropdown = Masterservice.all.map{ |s| [ s.name ] }
     if params[:search].present?
       @pp = Providerprofile.joins(:providerservices).where("providerservices.name == ?", params[:search])
     else
@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     end
     
     @count = @pp.count
-    if @count > 1
+    if @count > 1 || @count == 0
       @countmessage = "#{@count} providers found"
     else
       @countmessage = "#{@count} provider found"
