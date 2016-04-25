@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def maptest
     @service_dropdown = Masterservice.all.map{ |s| [ s.name ] }
     if params[:search].present?
-      @pp = Providerprofile.joins(:providerservices).where("providerservices.name == ?", params[:search])
+      @pp = Providerprofile.joins(:providerservices).where("providerservices.name = ?", params[:search])
     else
       @pp = Providerprofile.all
     end
