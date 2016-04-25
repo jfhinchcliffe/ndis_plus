@@ -1,7 +1,7 @@
 class ProviderprofilesController < ApplicationController
   before_action :set_providerprofile, only: [:show, :edit, :update, :destroy]
   before_action :set_services_dropdown, only: [:new, :edit]
-  before_action :authenticate_provider!
+  before_action :authenticate_provider!, except: [:show, :index]
 
   # GET /providerprofiles
   # GET /providerprofiles.json
