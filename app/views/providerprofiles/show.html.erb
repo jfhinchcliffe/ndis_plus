@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @providerprofile.name %>
+  <h3><%= @providerprofile.name %></h3>
 </p>
 
 <p>
@@ -26,12 +25,20 @@
 </p>
 
 <p>
-  <strong>Services</strong>
-  <% @providerprofile.providerservices.each do |providerservice| %>
-    <%= providerservice.name %>
-    <%= providerservice.description %>
-  <% end %>
+  <h3>Services</h3>
+  <div class="row">
+    <div class="col-md-4">
+      <table class="table">
+        <% @providerprofile.providerservices.each do |providerservice| %>
+        <tr>
+          <td><%= providerservice.name %></td>
+          <td><%= providerservice.description %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </p>
 
 <%= link_to 'Edit', edit_providerprofile_path(@providerprofile) %> |
-<%= link_to 'Back', providerprofiles_path %>
+<%= link_to 'Back', pages_maptest_path %>
