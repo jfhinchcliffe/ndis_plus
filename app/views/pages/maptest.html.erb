@@ -7,6 +7,9 @@ $(document).ready(function(){
 });
 </script>
 
+<%=raw @hash.last.to_json %>
+<%=raw @hash.to_json %>
+
 <%= form_tag pages_maptest_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -27,11 +30,17 @@ Therapeutic Supports">Example Search Terms</a>
   <tr>
     <th>Name</th>
     <th>Address</th>
+    <th>Opening Hours</th>
+    <th>Capacity</th>
+    <th>Current Clients</th>
   </tr>
   <% @pp.each do |pp| %>
   <tr>
     <td><%= link_to pp.name, pp %></td>
     <td><%= pp.address %></td>
+    <td><%= pp.hours %></td>
+    <td><%= pp.capacity %></td>
+    <td><%= pp.clients %></td>
   </tr>
   <% end %>
 </table>

@@ -75,7 +75,7 @@ class ProviderprofilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def providerprofile_params
-      params.require(:providerprofile).permit(:name, :description, :address, :phone, :email, :provider_id, providerservices_attributes: [:id, :name, :description, :_destroy])
+      params.require(:providerprofile).permit(:name, :description, :address, :phone, :email, :hours, :capacity, :clients, :provider_id, providerservices_attributes: [:id, :name, :description, :_destroy])
     end
     
     def set_services_dropdown
