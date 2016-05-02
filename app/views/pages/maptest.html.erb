@@ -7,9 +7,6 @@ $(document).ready(function(){
 });
 </script>
 
-<%=raw @hash.last.to_json %>
-<%=raw @hash.to_json %>
-
 <%= form_tag pages_maptest_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -51,11 +48,9 @@ Therapeutic Supports">Example Search Terms</a>
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    handler.addMarkers(<%=raw @hash.to_json %>);
-    handler.bounds.extendWith(<%=raw @hash.to_json %>);
-    handler.fitMapToBounds();
-    handler.getMap().setZoom(10);
-    handler.map.centerOn(<%=raw @hash.last.to_json %>); 
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
   });
 </script>
 <a id="popover" data-trigger="hover">Popover</a>
