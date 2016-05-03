@@ -40,3 +40,5 @@ Providerservice.create({name: 'Equipment Special Assess Setup', providerprofile_
 Providerservice.create({name: 'Home Modification', providerprofile_id: '10'})
 Providerservice.create({name: 'Personal Mobility Equipment', providerprofile_id: '10'})
 Providerservice.create({name: 'Therapeutic Supports', providerprofile_id: '10'})
+
+Masterservice.create([{ name: 'Assist Access/Maintain Employ' }, { name: 'Household Tasks' }, { name: 'Behaviour Support' }, { name: 'Therapeutic Supports' }, { name: 'Assess-Skill/Ability Needs' }, { name: 'Assist-Live Stage, Transition' }, { name: 'Equipment Special Assess Setup' }, { name: 'Participate Community' }, { name: 'Personal Mobility Equipment' }])

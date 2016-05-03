@@ -16,11 +16,9 @@ class PagesController < ApplicationController
     else
       @countmessage = "#{@count} provider found"
     end
-    #if params[:search].present?
-    #  @providerprofiles = Providerservice.where(name: params[:search])
-    #else
-      #@providerprofiles = Providerprofile.where(id: @pp.providerprofile_id)
-    #end
+        
+    @service_dropdown = Masterservice.all.map{ |s| [ s.name ] }
+   
     
     @hash = Gmaps4rails.build_markers(@pp) do |providerprofile, marker|
       if providerprofile.latitude.present? || providerprofile.longitude.present?

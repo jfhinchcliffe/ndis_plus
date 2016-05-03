@@ -7,9 +7,13 @@ $(document).ready(function(){
 });
 </script>
 
+
+
+
 <%= form_tag pages_maptest_path, :method => :get do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
+
+    <%= select_tag "search", options_for_select(@service_dropdown, params[:search]) %>
     <%= submit_tag "Filter by Service", :name => nil, class: "btn btn-primary" %>
     <a href="#" data-toggle="tooltip" title="Household Tasks,
 Assess-Skill/Ability Needs,
@@ -19,6 +23,7 @@ Personal Mobility Equipment,
 Therapeutic Supports">Example Search Terms</a>
   </p>
 <% end %>
+
 
 <% if params[:search].present? %>
   <%= @countmessage %>
@@ -53,6 +58,5 @@ Therapeutic Supports">Example Search Terms</a>
   handler.fitMapToBounds();
   });
 </script>
-<a id="popover" data-trigger="hover">Popover</a>
 <br>
 <br>
